@@ -11,10 +11,274 @@
             box-sizing: border-box;
         }
 
+        /* Network Canvas Background */
+        .network-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.8;
+        }
+
+        /* Ensure content appears above canvas */
+        .header, .hero, .stats, .services, .values, .software, .team, .contact, .faq, .footer {
+            position: relative;
+            z-index: 2;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
+            overflow-x: hidden;
+            background: #0a0a0a;
+        }
+
+        /* Floating Particles */
+        .particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: float linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Scroll Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-on-scroll.animate-active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Enhanced Button Animations */
+        .cta-button, .hero-cta, .service-cta, .submit-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button::before, .hero-cta::before, .service-cta::before, .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before, .hero-cta:hover::before, .service-cta:hover::before, .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Loading Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 40px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        .hero-container, .stats-container, .services-container, .values-container {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        /* Floating Elements in Hero */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 20%;
+            right: 10%;
+            width: 100px;
+            height: 100px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            animation: floatUpDown 6s ease-in-out infinite;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 20%;
+            left: 10%;
+            width: 80px;
+            height: 80px;
+            background: rgba(76, 175, 80, 0.2);
+            border-radius: 50%;
+            animation: floatUpDown 4s ease-in-out infinite reverse;
+        }
+
+        @keyframes floatUpDown {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Enhanced Service Cards */
+        .service-card {
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+            animation: ripple 0.6s ease-out;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        @keyframes ripple {
+            0% { transform: scale(0); }
+            100% { transform: scale(1); }
+        }
+
+        /* Stats Number Animation */
+        .stat-number {
+            background: linear-gradient(45deg, #667eea, #764ba2, #4CAF50);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Dashboard Animation */
+        .dashboard {
+            animation: slideInUp 1s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dashboard::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #667eea, transparent);
+            animation: scanLine 3s linear infinite;
+        }
+
+        @keyframes scanLine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 100px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        /* Enhanced FAQ Animation */
+        .faq-item {
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .faq-answer.active {
+            max-height: 200px;
+        }
+
+        /* Glowing Effect for Important Elements */
+        .hero h1 {
+            text-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+            animation: textGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            from { text-shadow: 0 0 10px rgba(76, 175, 80, 0.3); }
+            to { text-shadow: 0 0 20px rgba(76, 175, 80, 0.6), 0 0 30px rgba(76, 175, 80, 0.4); }
+        }
+
+        /* Scroll Progress Indicator */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            z-index: 9999;
+            transition: width 0.1s ease;
         }
 
         /* Header */
@@ -646,7 +910,7 @@
         <div class="hero-container">
             <h1>We help businesses<br><span class="highlight">reach for the stars</span></h1>
             <p>Your journey to digital success starts here. We provide comprehensive digital marketing strategies that drive results and accelerate growth.</p>
-            <button class="hero-cta">Get Started Today</button>
+            <button class="hero-cta">Book a Call</button>
             
             <div class="client-logos">
                 <div class="client-logo">TechCorp</div>
@@ -730,7 +994,7 @@
     <section class="software">
         <div class="software-container">
             <h2>We built <span class="highlight">cutting-edge tools</span> to maximize performance and transparency</h2>
-            <button class="hero-cta">Book A Call</button>
+            <button class="hero-cta">Book a Call</button>
             
             <div class="dashboard">
                 <div class="dashboard-header">
@@ -799,7 +1063,7 @@
                         <label for="message">Tell us about your goals</label>
                         <textarea id="message" name="message" placeholder="What are you looking to achieve with digital marketing?"></textarea>
                     </div>
-                    <button type="submit" class="submit-btn">Schedule Strategy Session</button>
+                    <button type="submit" class="submit-btn">Book a Call</button>
                 </form>
             </div>
         </div>
@@ -880,7 +1144,229 @@
         </div>
     </footer>
 
+    <!-- Network Background Canvas -->
+    <canvas id="networkCanvas" class="network-canvas"></canvas>
+    
+    <!-- Floating Particles -->
+    <div class="particles-container"></div>
+
     <script>
+        // Network Canvas Animation
+        const canvas = document.getElementById('networkCanvas');
+        const ctx = canvas.getContext('2d');
+        let animationId;
+        
+        // Set canvas size
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        
+        // Network particles
+        class NetworkParticle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = Math.random() * 2 + 1;
+                this.opacity = Math.random() * 0.5 + 0.2;
+            }
+            
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                // Bounce off edges
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                
+                // Keep within bounds
+                this.x = Math.max(0, Math.min(canvas.width, this.x));
+                this.y = Math.max(0, Math.min(canvas.height, this.y));
+                
+                // Move toward cursor (subtle effect)
+                if (mouseX && mouseY) {
+                    const dx = mouseX - this.x;
+                    const dy = mouseY - this.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 150) {
+                        this.vx += dx * 0.00002;
+                        this.vy += dy * 0.00002;
+                    }
+                }
+                
+                // Apply friction
+                this.vx *= 0.99;
+                this.vy *= 0.99;
+            }
+            
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(102, 126, 234, ${this.opacity * 0.8})`;
+                ctx.fill();
+                
+                // Add subtle glow
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius * 2, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(102, 126, 234, ${this.opacity * 0.3})`;
+                ctx.fill();
+            }
+        }
+        
+        // Create particles
+        const particles = [];
+        const particleCount = Math.min(80, Math.floor((canvas.width * canvas.height) / 15000));
+        
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new NetworkParticle());
+        }
+        
+        // Draw connections between nearby particles
+        function drawConnections() {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 120) {
+                        const opacity = (1 - distance / 120) * 0.2;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(102, 126, 234, ${opacity})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+        
+        // Animation loop
+        function animateNetwork() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Update and draw particles
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            
+            // Draw connections
+            drawConnections();
+            
+            animationId = requestAnimationFrame(animateNetwork);
+        }
+        
+        // Start animation
+        animateNetwork();
+        
+        let mouseX = 0, mouseY = 0;
+        let followerX = 0, followerY = 0;
+        
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+        
+        // Create Floating Particles
+        function createParticles() {
+            const particlesContainer = document.querySelector('.particles-container');
+            const particleCount = 20;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 10 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        createParticles();
+
+        // Scroll Animations
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('animate-active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+
+        // Typing Animation for Hero Text
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize typing animation when page loads
+        window.addEventListener('load', () => {
+            const heroTitle = document.querySelector('.hero h1');
+            if (heroTitle) {
+                const originalText = heroTitle.textContent;
+                typeWriter(heroTitle, originalText, 50);
+            }
+        });
+
+        // Number Counter Animation
+        function animateNumbers() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent.replace(/[^\d]/g, ''));
+                let current = 0;
+                const increment = target / 100;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    
+                    const suffix = counter.textContent.match(/[^\d]/g);
+                    const prefix = counter.textContent.match(/^[^\d]*/);
+                    counter.textContent = (prefix ? prefix[0] : '') + Math.floor(current) + (suffix ? suffix.join('') : '');
+                }, 20);
+            });
+        }
+
+        // Trigger number animation when stats section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateNumbers();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const statsSection = document.querySelector('.stats');
+            if (statsSection) {
+                statsObserver.observe(statsSection);
+            }
+        });
+
         // FAQ Toggle
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
@@ -915,6 +1401,26 @@
         document.querySelector('form').addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Thank you for your interest! We will contact you within 24 hours to schedule your free strategy session.');
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Button hover effects with particles
+        document.querySelectorAll('.cta-button, .hero-cta, .service-cta, .submit-btn').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px) scale(1.05)';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
         });
     </script>
 </body>
