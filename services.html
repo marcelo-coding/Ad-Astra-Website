@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - AdAstra Digital Marketing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            background: #0a0a0a;
+        }
+
+        /* Network Canvas Background */
+        .network-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.8;
+        }
+
+        /* Ensure content appears above canvas */
+        .header, .hero, .services-detail, .process, .cta-section, .footer {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+
+        .logo .highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #667eea;
+        }
+
+        .nav-menu a.active {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 120px 0 60px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Services Detail Section */
+        .services-detail {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-detail {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service-detail:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-icon-large {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .service-detail.software .service-icon-large {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+        }
+
+        .service-detail.extension .service-icon-large {
+            background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+        }
+
+        .service-header h2 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 0.25rem;
+        }
+
+        .service-subtitle {
+            font-size: 1rem;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .service-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-item {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid #667eea;
+        }
+
+        .feature-item h4 {
+            color: #2c3e50;
+            margin-bottom: 0.25rem;
+            font-size: 0.9rem;
+        }
+
+        .feature-item p {
+            color: #666;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        .service-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 0.75rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .service-cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .service-cta:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Process Section */
+        .process {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .process-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .process h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .process-step {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .process-step h3 {
+            margin: 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .process-step p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: #f8f9fa;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .cta-section .highlight {
+            background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .large-cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem 3rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s;
+            margin-right: 1rem;
+        }
+
+        .large-cta:hover {
+            transform: translateY(-3px);
+        }
+
+        .secondary-cta {
+            background: transparent;
+            color: #667eea;
+            padding: 1.5rem 3rem;
+            border: 2px solid #667eea;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .secondary-cta:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #4CAF50;
+        }
+
+        .footer-section p {
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .service-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .service-detail:nth-child(even),
+            .service-detail:nth-child(odd) {
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 100%;
+            }
+
+            .service-stats {
+                justify-content: center;
+            }
+
+            .large-cta, .secondary-cta {
+                display: block;
+                margin: 0.5rem auto;
+                width: fit-content;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Network Background Canvas -->
+    <canvas id="networkCanvas" class="network-canvas"></canvas>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                Ad<span class="highlight">Astra</span>
+            </a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="cta-button">Book a Call</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Our Amazon PPC Services</h1>
+            <p>Comprehensive solutions to maximize your Amazon success with proven strategies, cutting-edge software, and expert management.</p>
+        </div>
+    </section>
+
+    <!-- Services Detail Section -->
+    <section class="services-detail">
+        <div class="services-container">
+            <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem; color: #2c3e50;">Our Amazon PPC Services</h2>
+            
+            <div class="services-grid">
+                <!-- Amazon PPC Management -->
+                <div class="service-detail management">
+                    <div class="service-header">
+                        <div class="service-icon-large">👤</div>
+                        <div>
+                            <h2>Amazon PPC Management</h2>
+                            <div class="service-subtitle">Full-Service Campaign Management</div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-description">
+                        Our advertising experts use proprietary software along with proven strategies to manage your campaigns. Our team combines technical expertise with Amazon knowledge to optimize your ROAS.
+                    </div>
+
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <h4>Campaign Strategy</h4>
+                            <p>Custom structures for your products</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Keyword Research</h4>
+                            <p>Advanced discovery & analysis</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Bid Optimization</h4>
+                            <p>AI-powered bid management</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Reporting</h4>
+                            <p>Detailed performance insights</p>
+                        </div>
+                    </div>
+
+                    <div class="service-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">200+</div>
+                            <div class="stat-label">Campaigns</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">3.2X</div>
+                            <div class="stat-label">Avg ROAS</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">150%</div>
+                            <div class="stat-label">ROI Increase</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label">Retention</div>
+                        </div>
+                    </div>
+
+                    <button class="service-cta">Book a Call</button>
+                </div>
+
+                <!-- Custom Amazon Software -->
+                <div class="service-detail software">
+                    <div class="service-header">
+                        <div class="service-icon-large">⚡</div>
+                        <div>
+                            <h2>Custom Amazon Software</h2>
+                            <div class="service-subtitle">Battle-Tested Tools</div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-description">
+                        Download our battle-tested Chrome extensions to begin optimizing immediately. Product research, keyword analysis, and competitor tracking tools trusted by thousands of sellers.
+                    </div>
+
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <h4>Product Research</h4>
+                            <p>Profitable product discovery</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Keyword Analysis</h4>
+                            <p>Comprehensive research tools</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Competitor Tracking</h4>
+                            <p>Real-time monitoring</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Optimization</h4>
+                            <p>AI-powered suggestions</p>
+                        </div>
+                    </div>
+
+                    <div class="service-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">5,000+</div>
+                            <div class="stat-label">Users</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">50M+</div>
+                            <div class="stat-label">Products</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Updates</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">99.9%</div>
+                            <div class="stat-label">Uptime</div>
+                        </div>
+                    </div>
+
+                    <button class="service-cta">Book a Call</button>
+                </div>
+
+                <!-- Chrome Extension -->
+                <div class="service-detail extension">
+                    <div class="service-header">
+                        <div class="service-icon-large">⬇</div>
+                        <div>
+                            <h2>Chrome Extension</h2>
+                            <div class="service-subtitle">Custom Solutions</div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-description">
+                        Get software built specifically for your Amazon business needs. Our team develops operational tools that address specific business challenges.
+                    </div>
+
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <h4>Custom Development</h4>
+                            <p>Tailored to your needs</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Automation</h4>
+                            <p>Streamlined workflows</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Analytics</h4>
+                            <p>Deep insights & reporting</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Advantage</h4>
+                            <p>Unique competitive edge</p>
+                        </div>
+                    </div>
+
+                    <div class="service-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Solutions</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">80%</div>
+                            <div class="stat-label">Time Saved</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Unique</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Support</div>
+                        </div>
+                    </div>
+
+                    <button class="service-cta">Book a Call</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="process-container">
+            <h2>Our Proven Process</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <h3>Discovery & Analysis</h3>
+                    <p>We analyze your current performance, identify opportunities, and develop a customized strategy for your specific market and products.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <h3>Implementation</h3>
+                    <p>Our expert team implements proven strategies using our proprietary tools and software to maximize your Amazon performance immediately.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <h3>Optimization</h3>
+                    <p>Continuous monitoring and optimization of campaigns, keywords, and listings to ensure maximum ROI and sustainable growth.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">04</div>
+                    <h3>Scale & Growth</h3>
+                    <p>As performance improves, we scale successful campaigns and expand into new opportunities to accelerate your business growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>Ready to <span class="highlight">dominate Amazon</span> with expert PPC management?</h2>
+            <p>Join hundreds of successful sellers who trust AdAstra to maximize their Amazon performance and profitability.</p>
+            <div>
+                <button class="large-cta">Book a Call</button>
+                <button class="secondary-cta">View Case Studies</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AdAstra Digital Marketing</h3>
+                    <p>We are a team of Amazon PPC experts, helping sellers maximize their performance with proven strategies and cutting-edge software solutions.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#management">Amazon PPC Management</a></li>
+                        <li><a href="#software">Custom Amazon Software</a></li>
+                        <li><a href="#extension">Chrome Extension</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#contact">Free Strategy Session</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#about">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>info@adastradigitalmarketing.tech</li>
+                        <li>Book a Strategy Call</li>
+                        <li>Get Started Today</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 AdAstra Digital Marketing. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Network Canvas Animation (same as homepage)
+        const canvas = document.getElementById('networkCanvas');
+        const ctx = canvas.getContext('2d');
+        let animationId;
+        
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        
+        class NetworkParticle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = Math.random() * 2 + 1;
+                this.opacity = Math.random() * 0.5 + 0.2;
+            }
+            
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                
+                this.x = Math.max(0, Math.min(canvas.width, this.x));
+                this.y = Math.max(0, Math.min(canvas.height, this.y));
+                
+                if (mouseX && mouseY) {
+                    const dx = mouseX - this.x;
+                    const dy = mouseY - this.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 150) {
+                        this.vx += dx * 0.00002;
+                        this.vy += dy * 0.00002;
+                    }
+                }
+                
+                this.vx *= 0.99;
+                this.vy *= 0.99;
+            }
+            
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(102, 126, 234, ${this.opacity * 0.8})`;
+                ctx.fill();
+                
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius * 2, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(102, 126, 234, ${this.opacity * 0.3})`;
+                ctx.fill();
+            }
+        }
+        
+        const particles = [];
+        const particleCount = Math.min(80, Math.floor((canvas.width * canvas.height) / 15000));
+        
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new NetworkParticle());
+        }
+        
+        function drawConnections() {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 120) {
+                        const opacity = (1 - distance / 120) * 0.4;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(102, 126, 234, ${opacity})`;
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+        
+        function animateNetwork() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            
+            drawConnections();
+            
+            animationId = requestAnimationFrame(animateNetwork);
+        }
+        
+        animateNetwork();
+        
+        let mouseX = 0, mouseY = 0;
+        
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        // Button click handlers
+        document.querySelectorAll('.cta-button, .service-cta, .large-cta').forEach(button => {
+            button.addEventListener('click', () => {
+                alert('Thank you for your interest! We will contact you within 24 hours to schedule your free strategy session.');
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
