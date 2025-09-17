@@ -3,65 +3,919 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AdAstra Digital Marketing</title>
+    <title>AdAstra Digital Marketing - Reach for the Stars</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
-            padding: 20px;
-            background-color: #f5f5f5;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        h1 {
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
             color: #333;
-            text-align: center;
-            margin-bottom: 30px;
         }
-        p {
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .logo .highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #667eea;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero .highlight {
+            background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s;
+            margin-bottom: 3rem;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+        }
+
+        .client-logos {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            opacity: 0.7;
+        }
+
+        .client-logo {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: #f8f9fa;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .stats h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card.coaching {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .service-card h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .service-cta {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .service-cta:hover {
+            background: white;
+            color: #2c3e50;
+        }
+
+        .service-footer {
+            margin-top: 2rem;
+            font-weight: 600;
+            opacity: 0.8;
+        }
+
+        /* Values Section */
+        .values {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+
+        .values-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .value-item h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .value-item p {
             color: #666;
             line-height: 1.6;
-            margin-bottom: 20px;
         }
-        .cta {
-            background-color: #007bff;
+
+        /* Software Section */
+        .software {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            display: block;
-            margin: 30px auto;
+            padding: 80px 0;
+            text-align: center;
         }
-        .cta:hover {
-            background-color: #0056b3;
+
+        .software-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .software h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .software .highlight {
+            background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .software p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        .dashboard {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 3rem auto;
+            max-width: 800px;
+            color: #333;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 1rem;
+        }
+
+        .dashboard-title {
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .dashboard-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .metric {
+            text-align: center;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Team Section */
+        .team {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .team-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .team h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .team p {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        .team-values {
+            text-align: left;
+            max-width: 400px;
+            margin: 2rem auto;
+        }
+
+        .team-values li {
+            margin-bottom: 0.5rem;
+            list-style: none;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .team-values li:before {
+            content: "-";
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact .highlight {
+            background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .contact-form {
+            background: rgba(255,255,255,0.1);
+            padding: 3rem;
+            border-radius: 20px;
+            margin-top: 3rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.9);
+            color: #333;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+            color: white;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* FAQ Section */
+        .faq {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .faq h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            background: white;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: #2c3e50;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #4CAF50;
+        }
+
+        .footer-section p {
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .client-logos {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to AdAstra Digital Marketing</h1>
-        <p>Your journey to digital success starts here.</p>
-        <p>We help businesses reach for the stars with innovative digital marketing strategies that drive results.</p>
-        <p>Our services include:</p>
-        <ul>
-            <li>Search Engine Optimization (SEO)</li>
-            <li>Pay-Per-Click Advertising (PPC)</li>
-            <li>Social Media Marketing</li>
-            <li>Content Marketing</li>
-            <li>Website Design & Development</li>
-        </ul>
-        <button class="cta">Get Started Today</button>
-        <p style="text-align: center; margin-top: 40px;">
-            <strong>Contact us:</strong> info@adastradigitalmarketing.tech
-        </p>
-    </div>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                Ad<span class="highlight">Astra</span>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="cta-button">Book A Call</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <h1>We help businesses<br><span class="highlight">reach for the stars</span></h1>
+            <p>Your journey to digital success starts here. We provide comprehensive digital marketing strategies that drive results and accelerate growth.</p>
+            <button class="hero-cta">Get Started Today</button>
+            
+            <div class="client-logos">
+                <div class="client-logo">TechCorp</div>
+                <div class="client-logo">InnovateCo</div>
+                <div class="client-logo">GrowthLab</div>
+                <div class="client-logo">ScaleTech</div>
+                <div class="client-logo">NextGen</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <h2>Our numbers speak for themselves</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">+150%</div>
+                    <div class="stat-label">Average ROI increase for clients</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">$50M+</div>
+                    <div class="stat-label">Revenue generated for clients</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Successful campaigns launched</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Happy clients and growing</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="services-container">
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">A</div>
+                    <h3>Full Service</h3>
+                    <p>We fully manage your digital marketing strategy, letting you focus on what you do best. Our expert team ensures optimal performance across all channels with maximum ROI.</p>
+                    <button class="service-cta">Learn More</button>
+                    <div class="service-footer">Managed 200+ Campaigns</div>
+                </div>
+                
+                <div class="service-card coaching">
+                    <div class="service-icon">C</div>
+                    <h3>Consulting</h3>
+                    <p>Build an in-house marketing department with our proven strategies, step-by-step guidance, and hands-on training. Your team learns to run profitable campaigns with total control.</p>
+                    <button class="service-cta">Learn More</button>
+                    <div class="service-footer">Trained 100+ Teams</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values">
+        <div class="values-container">
+            <div class="values-grid">
+                <div class="value-item">
+                    <h3>Results-Focused Solutions</h3>
+                    <p>A hands-on approach with cutting-edge tools allows us to create custom strategies for every client, ensuring measurable success.</p>
+                </div>
+                <div class="value-item">
+                    <h3>Experienced Digital Experts</h3>
+                    <p>We've spent years perfecting our approach to digital marketing to deliver exceptional results for our clients.</p>
+                </div>
+                <div class="value-item">
+                    <h3>Transparent, Caring Partnerships</h3>
+                    <p>Nobody wants to be in a bad relationship. Communication always comes first so we can grow long-term together.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Software Section -->
+    <section class="software">
+        <div class="software-container">
+            <h2>We built <span class="highlight">cutting-edge tools</span> to maximize performance and transparency</h2>
+            <button class="hero-cta">Book A Call</button>
+            
+            <div class="dashboard">
+                <div class="dashboard-header">
+                    <div class="dashboard-title">AdAstra Analytics Dashboard</div>
+                    <div>Real-time Performance Tracking</div>
+                </div>
+                <div class="dashboard-metrics">
+                    <div class="metric">
+                        <div class="metric-value">+145%</div>
+                        <div class="metric-label">Conversion Rate</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">$125K</div>
+                        <div class="metric-label">Revenue This Month</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">2.8X</div>
+                        <div class="metric-label">ROAS</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">98%</div>
+                        <div class="metric-label">Client Satisfaction</div>
+                    </div>
+                </div>
+                <p style="text-align: center; color: #666; font-style: italic;">Live performance data updated every 15 minutes</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="about">
+        <div class="team-container">
+            <h2>Digital Marketing Experts You Can Trust</h2>
+            <p>Our team of seasoned digital marketing professionals combines industry expertise with innovative strategies to deliver exceptional results.</p>
+            
+            <div class="team-values">
+                <ul>
+                    <li>We care deeply about your success</li>
+                    <li>We value honesty and transparency</li>
+                    <li>We take full accountability for results</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <h2>Ready to accelerate your growth with a <span class="highlight">free strategy session?</span></h2>
+            
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Tell us about your goals</label>
+                        <textarea id="message" name="message" placeholder="What are you looking to achieve with digital marketing?"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Schedule Strategy Session</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="faq-container">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <button class="faq-question">What makes AdAstra different from other agencies?</button>
+                <div class="faq-answer">We combine data-driven strategies with personalized service. Our proprietary tools and transparent reporting ensure you always know exactly how your campaigns are performing and what we're doing to improve them.</div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">What services does AdAstra provide?</button>
+                <div class="faq-answer">We offer comprehensive digital marketing services including PPC advertising, SEO, social media marketing, content marketing, email marketing, and conversion optimization. We can manage everything or work alongside your team.</div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">How quickly can we expect to see results?</button>
+                <div class="faq-answer">While every business is different, most clients start seeing improvements within the first 30-60 days. We focus on quick wins while building sustainable long-term growth strategies.</div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">Do you work with small businesses?</button>
+                <div class="faq-answer">Absolutely! We work with businesses of all sizes, from startups to enterprise companies. Our strategies are tailored to your specific budget and growth goals.</div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">What's the difference between full service and consulting?</button>
+                <div class="faq-answer">Full service means we handle everything for you - strategy, implementation, and management. Consulting involves training your team and providing guidance while you maintain control of execution.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AdAstra Digital Marketing</h3>
+                    <p>We are a team of digital marketing experts, helping businesses reach new heights with proven strategies and innovative solutions.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#services">Full Service Management</a></li>
+                        <li><a href="#services">Digital Marketing Consulting</a></li>
+                        <li><a href="#services">Strategy Development</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#contact">Free Strategy Session</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#about">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>info@adastradigitalmarketing.tech</li>
+                        <li>Schedule a call</li>
+                        <li>Get started today</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 AdAstra Digital Marketing. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isOpen = answer.style.display === 'block';
+                
+                // Close all answers
+                document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+                
+                // Open clicked answer if it wasn't already open
+                if (!isOpen) {
+                    answer.style.display = 'block';
+                }
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your interest! We will contact you within 24 hours to schedule your free strategy session.');
+        });
+    </script>
 </body>
 </html>
