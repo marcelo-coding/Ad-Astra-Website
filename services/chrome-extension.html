@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chrome Extension for Amazon Sellers - AdAstra Digital Marketing</title>
+    <meta name="description" content="Battle-tested Chrome extensions for Amazon sellers. Product research, keyword analysis, competitor tracking, and listing optimization tools.">
+    
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <canvas id="networkCanvas" class="network-canvas"></canvas>
+    <div class="particles-container"></div>
+
+    <header class="header">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                Ad<span class="highlight">Astra</span>
+            </a>
+            <nav class="nav-menu">
+                <a href="../index.html">Home</a>
+                <a href="../contact.html">Contact</a>
+                <a href="../services/index.html" class="active">Services</a>
+                <a href="../blog/index.html">Blog</a>
+            </nav>
+            <button class="cta-button" data-calendly-url="https://calendly.com/marcfreelance0319/amazon-ppc-expert-interview">Book a Meeting</button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Chrome Extensions for <span class="highlight">Amazon Sellers</span></h1>
+            <p>Battle-tested extensions for product research, keyword analysis, competitor tracking, and listing optimization trusted by thousands of successful sellers.</p>
+            <button class="hero-cta" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})">View Extensions</button>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stats-container">
+            <h2>Extension Performance</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">Active Users</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4.9★</div>
+                    <div class="stat-label">User Rating</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50K+</div>
+                    <div class="stat-label">Products Analyzed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Data Updates</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-detail">
+        <div class="services-container">
+            <div class="services-grid">
+                <div class="service-detail extension">
+                    <div class="service-header">
+                        <div class="service-icon-large">🔍</div>
+                        <div>
+                            <h2>Product Research Pro</h2>
+                            <div class="service-subtitle">Find Profitable Opportunities</div>
+                        </div>
+                    </div>
+                    <p class="service-description">
+                        Instantly analyze any Amazon product for profitability, competition, and market opportunity. Get real-time data on sales velocity, BSR trends, and profit margins.
+                    </p>
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <h4>Sales Estimates</h4>
+                            <p>Monthly revenue calculations</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Profit Calculator</h4>
+                            <p>FBA fees and margins</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Competition Analysis</h4>
+                            <p>Market saturation metrics</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Trend Detection</h4>
+                            <p>Historical BSR tracking</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-detail">
+                    <div class="service-header">
+                        <div class="service-icon-large">🎯</div>
+                        <div>
+                            <h2>Keyword Hunter</h2>
+                            <div class="service-subtitle">Advanced Keyword Research</div>
+                        </div>
+                    </div>
+                    <p class="service-description">
+                        Discover high-converting keywords your competitors are using. Get search volume, competition scores, and PPC bid recommendations for optimal campaign performance.
+                    </p>
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <h4>Search Volume</h4>
+                            <p>Real Amazon search data</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Competition Score</h4>
+                            <p>Keyword difficulty analysis</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Bid Suggestions</h4>
+                            <p>PPC cost recommendations</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Related Keywords</h4>
+                            <p>Semantic keyword discovery</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-detail software">
+                    <div class="service-header">
+                        <div class="service-icon-large">📊</div>
+                        <div>
+                            <h2>Competitor Tracker</h2>
+                            <div class="service-subtitle">Monitor Competition</div>
+                        </div>
+                    </div>
+                    <p class="service-description">
+                        Track competitor pricing, inventory levels, review changes, and keyword rankings. Get alerts when competitors make strategic moves affecting your market position.
+                    </p>
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <h4>Price Monitoring</h4>
+                            <p>Real-time price tracking</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Inventory Alerts</h4>
+                            <p>Stock level notifications</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Review Analysis</h4>
+                            <p>Sentiment and rating trends</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Ranking Changes</h4>
+                            <p>SERP position tracking</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="pricing">
+        <div class="services-container">
+            <h2>Extension Pricing</h2>
+            <div class="services-grid-three">
+                <div class="service-card">
+                    <div class="service-icon">🆓</div>
+                    <h3>Starter</h3>
+                    <div style="font-size: 2.5rem; font-weight: bold; margin: 1rem 0;">FREE</div>
+                    <p>Basic product research with limited daily searches. Perfect for beginners exploring Amazon opportunities.</p>
+                    <ul style="text-align: left; margin: 1rem 0;">
+                        <li>10 product lookups/day</li>
+                        <li>Basic sales estimates</li>
+                        <li>Competition overview</li>
+                        <li>Email support</li>
+                    </ul>
+                    <button class="service-cta" onclick="window.open('https://chrome.google.com/webstore', '_blank')">Install Free</button>
+                </div>
+
+                <div class="service-card coaching">
+                    <div class="service-icon">⭐</div>
+                    <h3>Professional</h3>
+                    <div style="font-size: 2.5rem; font-weight: bold; margin: 1rem 0;">$39<span style="font-size: 1rem;">/mo</span></div>
+                    <p>Complete toolkit for serious Amazon sellers. Advanced analytics, competitor tracking, and keyword research.</p>
+                    <ul style="text-align: left; margin: 1rem 0;">
+                        <li>Unlimited product research</li>
+                        <li>Advanced keyword analytics</li>
+                        <li>Competitor price tracking</li>
+                        <li>Historical data access</li>
+                        <li>Priority support</li>
+                    </ul>
+                    <button class="service-cta stripe-payment-btn" 
+                            data-price-id="price_professional_monthly" 
+                            data-amount="3900">
+                        Start 7-Day Trial
+                    </button>
+                </div>
+
+                <div class="service-card extension">
+                    <div class="service-icon">🚀</div>
+                    <h3>Enterprise</h3>
+                    <div style="font-size: 2.5rem; font-weight: bold; margin: 1rem 0;">$99<span style="font-size: 1rem;">/mo</span></div>
+                    <p>Full suite with custom integrations, API access, and dedicated account management for scaling businesses.</p>
+                    <ul style="text-align: left; margin: 1rem 0;">
+                        <li>All Professional features</li>
+                        <li>API access & integrations</li>
+                        <li>Custom reporting</li>
+                        <li>Dedicated account manager</li>
+                        <li>White-label options</li>
+                    </ul>
+                    <button class="service-cta stripe-payment-btn" 
+                            data-price-id="price_enterprise_monthly" 
+                            data-amount="9900">
+                        Start 14-Day Trial
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="software">
+        <div class="software-container">
+            <h2>Extension <span class="highlight">Features</span></h2>
+            <p>See the powerful tools that give our users competitive advantages on Amazon</p>
+            
+            <div class="dashboard">
+                <div class="dashboard-header">
+                    <div class="dashboard-title">AdAstra Extension Dashboard</div>
+                    <div style="color: #4CAF50; font-weight: bold;">Live Product Data</div>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px;">
+                        <h4 style="color: #667eea; margin-bottom: 0.5rem;">Product Analysis</h4>
+                        <p style="margin: 0; font-size: 0.9rem;"><strong>ASIN:</strong> B08XYZ123</p>
+                        <p style="margin: 0; font-size: 0.9rem;"><strong>BSR:</strong> #1,247 in Home & Kitchen</p>
+                        <p style="margin: 0; font-size: 0.9rem;"><strong>Est. Revenue:</strong> $23,450/month</p>
+                        <p style="margin: 0; font-size: 0.9rem;"><strong>Profit Margin:</strong> 32%</p>
+                    </div>
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px;">
+                        <h4 style="color: #4CAF50; margin-bottom: 0.5rem;">Opportunity Score</h4>
+                        <div style="font-size: 2rem; font-weight: bold; color: #4CAF50;">8.7/10</div>
+                        <p style="margin: 0; font-size: 0.9rem;">High demand, medium competition</p>
+                        <p style="margin: 0; font-size: 0.9rem;">Recommended for launch</p>
+                    </div>
+                </div>
+                
+                <div style="background: #e8f5e8; padding: 1rem; border-radius: 8px; border-left: 4px solid #4CAF50;">
+                    <h4 style="color: #2e7d2e; margin-bottom: 0.5rem;">Key Insights</h4>
+                    <p style="color: #2e7d2e; font-size: 0.9rem; margin: 0;">• Low competition for "stainless steel water bottle insulated"</p>
+                    <p style="color: #2e7d2e; font-size: 0.9rem; margin: 0;">• Price point $5 below market average</p>
+                    <p style="color: #2e7d2e; font-size: 0.9rem; margin: 0;">• 87% positive review sentiment</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="services-container">
+            <h2>User Success Stories</h2>
+            <div class="services-grid-three">
+                <div class="service-card">
+                    <div class="service-icon">📈</div>
+                    <h3>Product Discovery</h3>
+                    <p>"Found 3 profitable products in my first week using the extension. The competition analysis saved me from launching in oversaturated categories."</p>
+                    <div class="service-footer">Sarah M. - $45K/month seller</div>
+                </div>
+
+                <div class="service-card coaching">
+                    <div class="service-icon">💰</div>
+                    <h3>Keyword Goldmine</h3>
+                    <p>"Discovered high-volume keywords my competitors were missing. PPC costs dropped 40% while conversions doubled."</p>
+                    <div class="service-footer">Mike R. - Electronics seller</div>
+                </div>
+
+                <div class="service-card extension">
+                    <div class="service-icon">⚡</div>
+                    <h3>Speed & Efficiency</h3>
+                    <p>"What used to take hours of manual research now takes minutes. The extension pays for itself with time savings alone."</p>
+                    <div class="service-footer">Lisa K. - Home & Garden</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="values" style="background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%); color: white;">
+        <div class="values-container">
+            <h2 style="color: white; text-align: center; margin-bottom: 3rem;">Why Choose AdAstra Extensions</h2>
+            <div class="values-grid">
+                <div class="value-item">
+                    <h3 style="color: white;">Real-Time Data</h3>
+                    <p style="color: rgba(255,255,255,0.9);">Access live Amazon data, not outdated databases. Get accurate insights when you need them most.</p>
+                </div>
+                <div class="value-item">
+                    <h3 style="color: white;">Proven Accuracy</h3>
+                    <p style="color: rgba(255,255,255,0.9);">Our algorithms are tested by thousands of successful sellers and continuously refined for maximum precision.</p>
+                </div>
+                <div class="value-item">
+                    <h3 style="color: white;">Ongoing Updates</h3>
+                    <p style="color: rgba(255,255,255,0.9);">Regular feature additions and improvements based on user feedback and Amazon platform changes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>Ready to Supercharge Your <span class="highlight">Amazon Research</span>?</h2>
+            <p>Join thousands of successful sellers who use AdAstra extensions to find profitable products and optimize their Amazon business.</p>
+            <button class="large-cta" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})">Choose Your Plan</button>
+            <button class="secondary-cta" data-calendly-url="https://calendly.com/marcfreelance0319/amazon-ppc-expert-interview">Book Demo Call</button>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AdAstra Digital Marketing</h3>
+                    <p>Taking Amazon seller's ads to the stratosphere with expert PPC management, custom software solutions, and proven scaling strategies.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="amazon-ppc-management.html">Amazon PPC Management</a></li>
+                        <li><a href="custom-amazon-software.html">Custom Amazon Software</a></li>
+                        <li><a href="chrome-extension.html">Chrome Extensions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="../about.html">About</a></li>
+                        <li><a href="../testimonials.html">Testimonials</a></li>
+                        <li><a href="../blog/index.html">Blog</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="../free-audit.html">Free Account Audit</a></li>
+                        <li><a href="../resources/amazon-ppc-guide.html">PPC Guide</a></li>
+                        <li><a href="../resources/faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AdAstra Digital Marketing. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/calendly-integration.js"></script>
+    <script src="../js/stripe-payments.js"></script>
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+</body>
+</html>
