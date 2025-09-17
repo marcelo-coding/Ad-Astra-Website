@@ -468,6 +468,16 @@
             padding: 0 2rem;
         }
 
+        .services-grid-three {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card.extension {
+            background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+        }
+
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -950,21 +960,30 @@
     <!-- Services Section -->
     <section class="services" id="services">
         <div class="services-container">
-            <div class="services-grid">
+            <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem; color: #2c3e50;">Our Services</h2>
+            <div class="services-grid-three">
                 <div class="service-card">
-                    <div class="service-icon">A</div>
-                    <h3>Full Service</h3>
-                    <p>We fully manage your digital marketing strategy, letting you focus on what you do best. Our expert team ensures optimal performance across all channels with maximum ROI.</p>
-                    <button class="service-cta">Learn More</button>
-                    <div class="service-footer">Managed 200+ Campaigns</div>
+                    <div class="service-icon">👤</div>
+                    <h3>Amazon PPC Management</h3>
+                    <p>Our advertising experts use proprietary software along with proven strategies to manage your campaigns. Our team combines technical expertise with Amazon knowledge to optimize your ROAS while expanding your most profitable products.</p>
+                    <button class="service-cta">Book a Call</button>
+                    <div class="service-footer">Managed 200+ Amazon Campaigns</div>
                 </div>
                 
                 <div class="service-card coaching">
-                    <div class="service-icon">C</div>
-                    <h3>Consulting</h3>
-                    <p>Build an in-house marketing department with our proven strategies, step-by-step guidance, and hands-on training. Your team learns to run profitable campaigns with total control.</p>
-                    <button class="service-cta">Learn More</button>
-                    <div class="service-footer">Trained 100+ Teams</div>
+                    <div class="service-icon">⚡</div>
+                    <h3>Custom Amazon Software</h3>
+                    <p>Download our battle-tested Chrome extensions to begin optimizing immediately. Product research, keyword analysis, competitor tracking, and listing optimization tools trusted by thousands of successful Amazon sellers.</p>
+                    <button class="service-cta">Book a Call</button>
+                    <div class="service-footer">Trusted by 5,000+ Sellers</div>
+                </div>
+
+                <div class="service-card extension">
+                    <div class="service-icon">⬇</div>
+                    <h3>Chrome Extension</h3>
+                    <p>Get software built specifically for your Amazon business needs. Our team develops operational tools that address specific business challenges to provide advantages which competitors cannot access.</p>
+                    <button class="service-cta">Book a Call</button>
+                    <div class="service-footer">Custom Solutions for Growth</div>
                 </div>
             </div>
         </div>
