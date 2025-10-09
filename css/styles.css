@@ -168,6 +168,7 @@ body {
 .logo-image {
     height: 20px !important;
     width: auto;
+    max-width: 150px !important;
 }
 
 .logo .highlight {
