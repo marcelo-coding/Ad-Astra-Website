@@ -166,7 +166,7 @@ body {
 }
 
 .logo-image {
-    height: 20px;
+    height: 20px !important;
     width: auto;
 }
 
