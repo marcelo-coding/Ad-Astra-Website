@@ -199,36 +199,52 @@ class ScrollAnimations {
     }
 }
 
-// Number Counter Animation
+// Number Counter Animation - FIXED VERSION
 class NumberCounters {
     constructor() {
+        this.animated = false;
         this.setupStatsObserver();
     }
     
     animateNumbers() {
+        if (this.animated) return;
+        this.animated = true;
+        
         const counters = document.querySelectorAll('.stat-number');
         counters.forEach(counter => {
-            const target = parseInt(counter.textContent.replace(/[^\d]/g, ''));
+            const finalText = counter.textContent;
+            const target = parseInt(counter.getAttribute('data-target') || '0');
+            
+            if (target === 0) return;
+            
             let current = 0;
-            const increment = target / 100;
+            const increment = target / 50;
+            const duration = 2000;
+            const stepTime = duration / 50;
+            
             const timer = setInterval(() => {
                 current += increment;
                 if (current >= target) {
                     current = target;
                     clearInterval(timer);
+                    counter.textContent = finalText;
+                } else {
+                    if (finalText.includes('$') && finalText.includes('M')) {
+                        counter.textContent = '$' + Math.floor(current) + 'M+';
+                    } else if (finalText.includes('+')) {
+                        counter.textContent = Math.floor(current) + '+';
+                    } else {
+                        counter.textContent = Math.floor(current);
+                    }
                 }
-                
-                const suffix = counter.textContent.match(/[^\d]/g);
-                const prefix = counter.textContent.match(/^[^\d]*/);
-                counter.textContent = (prefix ? prefix[0] : '') + Math.floor(current) + (suffix ? suffix.join('') : '');
-            }, 20);
+            }, stepTime);
         });
     }
     
     setupStatsObserver() {
         const statsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
+                if (entry.isIntersecting && !this.animated) {
                     this.animateNumbers();
                     statsObserver.unobserve(entry.target);
                 }
