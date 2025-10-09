@@ -150,12 +150,12 @@ body {
 }
 
 .nav-container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 2rem;
+    padding: 0 1rem;
 }
 
 .logo {
@@ -163,6 +163,7 @@ body {
     font-weight: bold;
     color: #2c3e50;
     text-decoration: none;
+    margin-right: auto;
 }
 
 .logo .highlight {
@@ -175,6 +176,7 @@ body {
     display: flex;
     list-style: none;
     gap: 2rem;
+    margin: 0 auto;
 }
 
 .nav-menu a {
@@ -202,6 +204,7 @@ body {
     font-weight: 600;
     cursor: pointer;
     transition: transform 0.3s;
+    margin-left: auto;
 }
 
 .cta-button:hover {
@@ -236,6 +239,7 @@ body {
     font-weight: 700;
     text-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
     animation: textGlow 2s ease-in-out infinite alternate;
+    line-height: 1.2;
 }
 
 @keyframes textGlow {
@@ -254,6 +258,7 @@ body {
     margin-bottom: 2rem;
     opacity: 0.9;
     line-height: 1.6;
+    text-align: left;
 }
 
 .hero-cta {

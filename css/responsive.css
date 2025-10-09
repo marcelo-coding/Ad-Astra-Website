@@ -37,6 +37,10 @@
         font-size: 3rem;
     }
     
+    .hero-content p {
+        text-align: center;
+    }
+    
     .client-logos {
         justify-content: center;
     }
@@ -46,6 +50,18 @@
 @media (max-width: 768px) {
     .nav-menu {
         display: none;
+    }
+    
+    .nav-container {
+        justify-content: space-between;
+    }
+    
+    .logo {
+        margin-right: 0;
+    }
+    
+    .cta-button {
+        margin-left: 0;
     }
     
     .hero h1 {
@@ -128,6 +144,7 @@
     
     .hero-content p {
         font-size: 1.1rem;
+        text-align: center;
     }
     
     .hero-calendly {
@@ -194,6 +211,7 @@
     
     .hero-content p {
         font-size: 1rem;
+        text-align: center;
     }
     
     .hero-cta {
