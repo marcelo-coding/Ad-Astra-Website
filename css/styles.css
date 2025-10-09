@@ -208,22 +208,29 @@ body {
     transform: translateY(-2px);
 }
 
-/* Hero Section */
+/* Hero Section with Split Layout */
 .hero {
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
     color: white;
     padding: 120px 0 80px;
-    text-align: center;
     margin-top: 80px;
 }
 
 .hero-container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
 }
 
-.hero h1 {
+.hero-content {
+    text-align: left;
+}
+
+.hero-content h1 {
     font-size: 3.5rem;
     margin-bottom: 1rem;
     font-weight: 700;
@@ -236,19 +243,17 @@ body {
     to { text-shadow: 0 0 20px rgba(76, 175, 80, 0.6), 0 0 30px rgba(76, 175, 80, 0.4); }
 }
 
-.hero .highlight {
+.hero-content .highlight {
     background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.hero p {
+.hero-content p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
     opacity: 0.9;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+    line-height: 1.6;
 }
 
 .hero-cta {
@@ -268,19 +273,28 @@ body {
     transform: translateY(-3px);
 }
 
+.hero-calendly {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    height: 630px;
+}
+
 .client-logos {
     display: flex;
-    justify-content: center;
-    gap: 3rem;
+    flex-wrap: wrap;
+    gap: 1.5rem;
     margin-top: 3rem;
     opacity: 0.7;
 }
 
 .client-logo {
     background: rgba(255,255,255,0.1);
-    padding: 1rem 2rem;
+    padding: 0.8rem 1.5rem;
     border-radius: 10px;
     font-weight: bold;
+    font-size: 0.9rem;
 }
 
 /* Stats Section */

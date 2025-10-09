@@ -22,6 +22,24 @@
     .dashboard-metrics {
         grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     }
+    
+    /* Hero Section Responsive */
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .hero-content {
+        text-align: center;
+    }
+    
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    
+    .client-logos {
+        justify-content: center;
+    }
 }
 
 /* Mobile Styles */
@@ -102,6 +120,19 @@
         grid-template-columns: 1fr;
         text-align: center;
     }
+    
+    /* Hero Section Responsive */
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+    
+    .hero-calendly {
+        height: 700px;
+    }
 }
 
 /* Small Mobile Styles */
@@ -153,6 +184,20 @@
     
     .large-cta, .secondary-cta {
         padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+    
+    /* Hero Section Responsive */
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    .hero-cta {
+        padding: 0.8rem 1.5rem;
         font-size: 1rem;
     }
 }
