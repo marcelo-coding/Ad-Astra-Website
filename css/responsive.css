@@ -12,7 +12,7 @@
     }
     
     .nav-container {
-        padding: 0 1rem;
+        padding: 0 2rem;
     }
     
     .client-logos {
@@ -54,10 +54,15 @@
     
     .nav-container {
         justify-content: space-between;
+        padding: 0 1rem;
     }
     
     .logo {
         margin-right: 0;
+    }
+    
+    .logo-image {
+        height: 32px;
     }
     
     .cta-button {
@@ -148,7 +153,7 @@
     }
     
     .hero-calendly {
-        height: 700px;
+        height: 950px;
     }
 }
 
@@ -226,8 +231,8 @@
         padding: 0 0.5rem;
     }
     
-    .logo {
-        font-size: 1.5rem;
+    .logo-image {
+        height: 28px;
     }
     
     .cta-button {
