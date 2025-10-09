@@ -13,6 +13,48 @@
     <!-- Preload important resources -->
     <link rel="preload" href="css/styles.css" as="style">
     <link rel="preload" href="js/main.js" as="script">
+    
+    <style>
+        /* Inline critical hero styles */
+        .hero-container {
+            max-width: 1400px !important;
+            margin: 0 auto !important;
+            padding: 0 2rem !important;
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 4rem !important;
+            align-items: center !important;
+        }
+        
+        .hero-content {
+            text-align: left !important;
+        }
+        
+        .hero-calendly {
+            background: white !important;
+            border-radius: 15px !important;
+            overflow: hidden !important;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3) !important;
+            height: 630px !important;
+        }
+        
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr !important;
+                gap: 3rem !important;
+            }
+            
+            .hero-content {
+                text-align: center !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-calendly {
+                height: 700px !important;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Network Background Canvas -->
