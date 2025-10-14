@@ -320,25 +320,28 @@ html {
 /* Calendly Widget Styling - Both Hero and CTA */
 .hero-calendly,
 .calendly-embed-container {
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-    height: 950px;
-    max-height: 950px;
+    background: transparent !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+    box-shadow: none !important;
+    height: 950px !important;
+    max-height: 950px !important;
+    width: 100% !important;
     position: relative;
     z-index: 1;
-    padding: 0;
-    margin: 0;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
-/* Hide Calendly scrollbar but keep functionality */
+/* Calendly inline widget - remove ALL spacing */
 .calendly-inline-widget {
-    overflow: hidden !important;
+    overflow: visible !important;
     padding: 0 !important;
     margin: 0 !important;
     width: 100% !important;
-    height: 100% !important;
+    height: 950px !important;
+    min-height: 950px !important;
+    display: block !important;
 }
 
 .calendly-inline-widget iframe {
@@ -346,6 +349,10 @@ html {
     padding: 0 !important;
     margin: 0 !important;
     border: none !important;
+    width: 100% !important;
+    height: 950px !important;
+    min-height: 950px !important;
+    display: block !important;
 }
 
 .client-logos {
