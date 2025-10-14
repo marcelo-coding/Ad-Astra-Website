@@ -236,94 +236,6 @@ html {
     border-radius: 25px;
     font-weight: 600;
     cursor: pointer;
-    color: #2c3e50;
-}
-
-.faq-answer {
-    padding: 0 1.5rem 1.5rem;
-    color: #666;
-    line-height: 1.6;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.5s ease;
-}
-
-.faq-answer.active {
-    max-height: 200px;
-}
-
-/* Footer */
-.footer {
-    background: #2c3e50;
-    color: white;
-    padding: 3rem 0 1rem;
-}
-
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.footer-section h3 {
-    margin-bottom: 1rem;
-    color: #4CAF50;
-}
-
-.footer-section p {
-    line-height: 1.6;
-    opacity: 0.8;
-}
-
-.footer-section ul {
-    list-style: none;
-}
-
-.footer-section ul li {
-    margin-bottom: 0.5rem;
-}
-
-.footer-section ul li a {
-    color: white;
-    text-decoration: none;
-    opacity: 0.8;
-    transition: opacity 0.3s;
-}
-
-.footer-section ul li a:hover {
-    opacity: 1;
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    opacity: 0.6;
-}
-
-/* Motion Preferences */
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
-    
-    .network-canvas,
-    .particles-container {
-        display: none;
-    }
-}
     transition: transform 0.3s;
     margin-left: auto;
 }
@@ -443,9 +355,15 @@ html {
     display: block !important;
 }
 
-/* Make Calendly sidebar background white to blend */
+/* Hide Calendly sidebar panel */
 .WrdpezlzjKu1CoRihaXS {
-    background: white !important;
+    display: none !important;
+}
+
+/* Force main calendar panel to full width */
+.booking-kit_main-panel_35dac99d {
+    width: 100% !important;
+    max-width: 100% !important;
 }
 
 .client-logos {
@@ -1153,3 +1071,91 @@ html {
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
+    color: #2c3e50;
+}
+
+.faq-answer {
+    padding: 0 1.5rem 1.5rem;
+    color: #666;
+    line-height: 1.6;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+.faq-answer.active {
+    max-height: 200px;
+}
+
+/* Footer */
+.footer {
+    background: #2c3e50;
+    color: white;
+    padding: 3rem 0 1rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    margin-bottom: 1rem;
+    color: #4CAF50;
+}
+
+.footer-section p {
+    line-height: 1.6;
+    opacity: 0.8;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.footer-section ul li a:hover {
+    opacity: 1;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    opacity: 0.6;
+}
+
+/* Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .network-canvas,
+    .particles-container {
+        display: none;
+    }
+}
