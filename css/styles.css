@@ -355,6 +355,17 @@ html {
     display: block !important;
 }
 
+/* Hide Calendly sidebar panel */
+.WrdpezlzjKu1CoRihaXS {
+    display: none !important;
+}
+
+/* Force main calendar panel to full width */
+.booking-kit_main-panel_35dac99d {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
 .client-logos {
     display: flex;
     flex-wrap: wrap;
