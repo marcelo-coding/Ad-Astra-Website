@@ -57,10 +57,18 @@ html {
 
 .testimonials-section {
     position: relative;
-    z-index: 3;
+    z-index: 2;
     background: #f8f9fa;
     padding: 80px 0;
     transform: translateZ(0);
+}
+
+.stats {
+    position: relative;
+    z-index: 2;
+    background: #f8f9fa;
+    padding: 80px 0;
+    text-align: center;
 }
 
 .particle {
@@ -244,7 +252,7 @@ html {
     margin-top: 80px;
     overflow: hidden;
     position: relative;
-    z-index: 2;
+    z-index: 1;
     transform: none !important;
 }
 
@@ -257,7 +265,7 @@ html {
     gap: 4rem;
     align-items: start;
     position: relative;
-    z-index: 2;
+    z-index: 1;
 }
 
 .hero-content {
@@ -320,15 +328,24 @@ html {
     max-height: 950px;
     position: relative;
     z-index: 1;
+    padding: 0;
+    margin: 0;
 }
 
 /* Hide Calendly scrollbar but keep functionality */
 .calendly-inline-widget {
     overflow: hidden !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
 }
 
 .calendly-inline-widget iframe {
     overflow: hidden !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
 }
 
 .client-logos {
@@ -347,13 +364,7 @@ html {
     font-size: 0.9rem;
 }
 
-/* Stats Section */
-.stats {
-    background: #f8f9fa;
-    padding: 80px 0;
-    text-align: center;
-}
-
+/* Stats Section - styles only, positioning defined above */
 .stats-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -403,6 +414,9 @@ html {
 /* Services Section */
 .services {
     padding: 80px 0;
+    position: relative;
+    z-index: 2;
+    background: #0a0a0a;
 }
 
 .services-container {
