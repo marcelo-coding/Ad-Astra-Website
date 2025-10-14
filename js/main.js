@@ -166,11 +166,11 @@ class FloatingParticles {
     }
 }
 
-// Scroll Animations - FIXED: Removed parallax effect
+// Scroll Animations - Parallax Removed
 class ScrollAnimations {
     constructor() {
         this.initScrollAnimations();
-        // REMOVED: initParallax() - this was causing the weird scrolling lag
+        // REMOVED: initParallax() - this was causing scroll lag
     }
     
     initScrollAnimations() {

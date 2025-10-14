@@ -34,20 +34,6 @@ html {
     backface-visibility: hidden;
 }
 
-/* Ensure content appears above canvas */
-.header, .hero, .stats, .services, .services-detail, .values, .software, .team, .contact, .faq, .footer, .process, .cta-section {
-    position: relative;
-    z-index: 2;
-    transform: translateZ(0);
-}
-
-.testimonials-section {
-    position: relative;
-    z-index: 3;
-    background: #f8f9fa;
-    padding: 80px 0;
-}
-
 /* Floating Particles */
 .particles-container {
     position: fixed;
@@ -60,6 +46,21 @@ html {
     will-change: transform;
     transform: translateZ(0);
     backface-visibility: hidden;
+}
+
+/* Ensure content appears above canvas */
+.header, .hero, .stats, .services, .services-detail, .values, .software, .team, .contact, .faq, .footer, .process, .cta-section {
+    position: relative;
+    z-index: 2;
+    transform: translateZ(0);
+}
+
+.testimonials-section {
+    position: relative;
+    z-index: 3;
+    background: #f8f9fa;
+    padding: 80px 0;
+    transform: translateZ(0);
 }
 
 .particle {
