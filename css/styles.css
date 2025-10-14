@@ -320,7 +320,7 @@ html {
 /* Calendly Widget Styling - Both Hero and CTA */
 .hero-calendly,
 .calendly-embed-container {
-    background: white;
+    background: #1a4b73;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(0,0,0,0.3);
