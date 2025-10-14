@@ -1,6 +1,5 @@
 // AdAstra Digital Marketing - Main JavaScript
 // Network animation and core functionality
-// VERSION 2 - FIXED SCROLLING ISSUES
 
 // Network Canvas Animation
 class AdAstraNetwork {
@@ -69,13 +68,11 @@ class AdAstraNetwork {
     animate() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         
-        // Update and draw particles
         this.particles.forEach(particle => {
             particle.update(this.mouseX, this.mouseY);
             particle.draw(this.ctx);
         });
         
-        // Draw connections
         this.drawConnections();
         
         this.animationId = requestAnimationFrame(() => this.animate());
@@ -88,7 +85,6 @@ class AdAstraNetwork {
     }
 }
 
-// Network Particle Class
 class NetworkParticle {
     constructor(canvas) {
         this.canvas = canvas;
@@ -104,15 +100,12 @@ class NetworkParticle {
         this.x += this.vx;
         this.y += this.vy;
         
-        // Bounce off edges
         if (this.x < 0 || this.x > this.canvas.width) this.vx *= -1;
         if (this.y < 0 || this.y > this.canvas.height) this.vy *= -1;
         
-        // Keep within bounds
         this.x = Math.max(0, Math.min(this.canvas.width, this.x));
         this.y = Math.max(0, Math.min(this.canvas.height, this.y));
         
-        // Move toward cursor (subtle effect)
         if (mouseX && mouseY) {
             const dx = mouseX - this.x;
             const dy = mouseY - this.y;
@@ -124,7 +117,6 @@ class NetworkParticle {
             }
         }
         
-        // Apply friction
         this.vx *= 0.99;
         this.vy *= 0.99;
     }
@@ -135,7 +127,6 @@ class NetworkParticle {
         ctx.fillStyle = `rgba(102, 126, 234, ${this.opacity * 0.8})`;
         ctx.fill();
         
-        // Add subtle glow
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius * 2, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(102, 126, 234, ${this.opacity * 0.3})`;
@@ -143,7 +134,6 @@ class NetworkParticle {
     }
 }
 
-// Floating Particles
 class FloatingParticles {
     constructor() {
         this.container = document.querySelector('.particles-container');
@@ -166,11 +156,9 @@ class FloatingParticles {
     }
 }
 
-// Scroll Animations - Parallax Removed
 class ScrollAnimations {
     constructor() {
         this.initScrollAnimations();
-        // REMOVED: initParallax() - this was causing scroll lag
     }
     
     initScrollAnimations() {
@@ -190,7 +178,6 @@ class ScrollAnimations {
     }
 }
 
-// Number Counter Animation - FIXED VERSION
 class NumberCounters {
     constructor() {
         this.animated = false;
@@ -249,7 +236,6 @@ class NumberCounters {
     }
 }
 
-// FAQ Toggle
 class FAQToggle {
     constructor() {
         this.setupFAQ();
@@ -261,13 +247,11 @@ class FAQToggle {
                 const answer = question.nextElementSibling;
                 const isOpen = answer.classList.contains('active');
                 
-                // Close all answers
                 document.querySelectorAll('.faq-answer').forEach(a => {
                     a.classList.remove('active');
                     a.style.display = 'none';
                 });
                 
-                // Open clicked answer if it wasn't already open
                 if (!isOpen) {
                     answer.classList.add('active');
                     answer.style.display = 'block';
@@ -277,7 +261,6 @@ class FAQToggle {
     }
 }
 
-// Smooth Scrolling
 class SmoothScroll {
     constructor() {
         this.setupSmoothScrolling();
@@ -299,7 +282,6 @@ class SmoothScroll {
     }
 }
 
-// Button Hover Effects
 class ButtonEffects {
     constructor() {
         this.setupButtonEffects();
@@ -318,7 +300,6 @@ class ButtonEffects {
     }
 }
 
-// Form Handling
 class FormHandler {
     constructor() {
         this.setupForms();
@@ -335,7 +316,6 @@ class FormHandler {
     }
 }
 
-// Typing Animation
 class TypingAnimation {
     constructor() {
         this.initTypingAnimation();
@@ -366,9 +346,7 @@ class TypingAnimation {
     }
 }
 
-// Initialize everything when DOM loads
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all components
     const network = new AdAstraNetwork();
     const particles = new FloatingParticles();
     const scrollAnimations = new ScrollAnimations();
@@ -382,9 +360,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('AdAstra Digital Marketing website loaded successfully!');
 });
 
-// Clean up on page unload
 window.addEventListener('beforeunload', function() {
-    // Clean up any running animations
     if (window.adAstraNetwork) {
         window.adAstraNetwork.destroy();
     }
