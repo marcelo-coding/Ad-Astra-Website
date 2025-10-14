@@ -320,28 +320,25 @@ html {
 /* Calendly Widget Styling - Both Hero and CTA */
 .hero-calendly,
 .calendly-embed-container {
-    background: transparent !important;
-    border-radius: 0 !important;
-    overflow: visible !important;
-    box-shadow: none !important;
-    height: 950px !important;
-    max-height: 950px !important;
-    width: 100% !important;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    height: 950px;
+    max-height: 950px;
     position: relative;
     z-index: 1;
     padding: 0 !important;
     margin: 0 !important;
 }
 
-/* Calendly inline widget - remove ALL spacing */
+/* Hide Calendly scrollbar and remove all padding */
 .calendly-inline-widget {
-    overflow: visible !important;
+    overflow: hidden !important;
     padding: 0 !important;
     margin: 0 !important;
     width: 100% !important;
-    height: 950px !important;
-    min-height: 950px !important;
-    display: block !important;
+    height: 100% !important;
 }
 
 .calendly-inline-widget iframe {
@@ -350,20 +347,19 @@ html {
     margin: 0 !important;
     border: none !important;
     width: 100% !important;
-    height: 950px !important;
-    min-height: 950px !important;
-    display: block !important;
+    height: 100% !important;
 }
 
-/* Hide Calendly sidebar panel */
-.WrdpezlzjKu1CoRihaXS {
-    display: none !important;
+/* Remove Calendly's internal padding */
+.calendly-inline-widget * {
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
-/* Force main calendar panel to full width */
-.booking-kit_main-panel_35dac99d {
-    width: 100% !important;
-    max-width: 100% !important;
+/* Target Calendly's wrapper divs */
+.calendly-inline-widget > div {
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
 .client-logos {
