@@ -308,7 +308,9 @@ html {
     transform: translateY(-3px);
 }
 
-.hero-calendly {
+/* Calendly Widget Styling - Both Hero and CTA */
+.hero-calendly,
+.calendly-embed-container {
     background: white;
     border-radius: 15px;
     overflow: hidden;
@@ -317,6 +319,15 @@ html {
     max-height: 950px;
     position: relative;
     z-index: 1;
+}
+
+/* Hide Calendly scrollbar but keep functionality */
+.calendly-inline-widget {
+    overflow: hidden !important;
+}
+
+.calendly-inline-widget iframe {
+    overflow: hidden !important;
 }
 
 .client-logos {
