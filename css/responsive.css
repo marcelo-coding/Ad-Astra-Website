@@ -24,6 +24,11 @@
     }
     
     /* Hero Section Responsive */
+    .hero {
+        overflow: hidden;
+        padding: 100px 0 60px;
+    }
+    
     .hero-container {
         grid-template-columns: 1fr;
         gap: 3rem;
@@ -39,6 +44,11 @@
     
     .hero-content p {
         text-align: center;
+    }
+    
+    .hero-calendly {
+        height: 900px;
+        max-height: 900px;
     }
     
     .client-logos {
@@ -67,6 +77,11 @@
     
     .cta-button {
         margin-left: 0;
+    }
+    
+    .hero {
+        overflow: hidden;
+        padding: 100px 0 60px;
     }
     
     .hero h1 {
@@ -153,12 +168,18 @@
     }
     
     .hero-calendly {
-        height: 950px;
+        height: 850px;
+        max-height: 850px;
     }
 }
 
 /* Small Mobile Styles */
 @media (max-width: 480px) {
+    .hero {
+        overflow: hidden;
+        padding: 100px 0 40px;
+    }
+    
     .hero h1 {
         font-size: 2rem;
     }
@@ -223,6 +244,11 @@
         padding: 0.8rem 1.5rem;
         font-size: 1rem;
     }
+    
+    .hero-calendly {
+        height: 800px;
+        max-height: 800px;
+    }
 }
 
 /* Extra Small Mobile */
@@ -241,11 +267,17 @@
     }
     
     .hero {
-        padding: 100px 0 60px;
+        padding: 100px 0 40px;
+        overflow: hidden;
     }
     
     .hero h1 {
         font-size: 1.8rem;
+    }
+    
+    .hero-calendly {
+        height: 750px;
+        max-height: 750px;
     }
     
     .service-card {

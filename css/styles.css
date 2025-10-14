@@ -14,6 +14,11 @@ body {
     background: #0a0a0a;
 }
 
+/* Scroll Performance Fixes */
+html {
+    scroll-behavior: smooth;
+}
+
 /* Network Canvas Background */
 .network-canvas {
     position: fixed;
@@ -23,13 +28,24 @@ body {
     height: 100%;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.8;
+    opacity: 0.6;
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 /* Ensure content appears above canvas */
 .header, .hero, .stats, .services, .services-detail, .values, .software, .team, .contact, .faq, .footer, .process, .cta-section {
     position: relative;
     z-index: 2;
+    transform: translateZ(0);
+}
+
+.testimonials-section {
+    position: relative;
+    z-index: 3;
+    background: #f8f9fa;
+    padding: 80px 0;
 }
 
 /* Floating Particles */
@@ -41,6 +57,9 @@ body {
     height: 100%;
     pointer-events: none;
     z-index: 1;
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 .particle {
@@ -222,6 +241,10 @@ body {
     color: white;
     padding: 120px 0 80px;
     margin-top: 80px;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    transform: none !important;
 }
 
 .hero-container {
@@ -231,7 +254,9 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
-    align-items: center;
+    align-items: start;
+    position: relative;
+    z-index: 2;
 }
 
 .hero-content {
@@ -289,6 +314,9 @@ body {
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(0,0,0,0.3);
     height: 950px;
+    max-height: 950px;
+    position: relative;
+    z-index: 1;
 }
 
 .client-logos {
@@ -1071,56 +1099,7 @@ body {
     opacity: 0.6;
 }
 
-/* Scroll Performance Fixes */
-html {
-    scroll-behavior: smooth;
-}
-
-.network-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.6;
-    will-change: transform;
-    transform: translateZ(0);
-    backface-visibility: hidden;
-}
-
-.particles-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-    will-change: transform;
-    transform: translateZ(0);
-    backface-visibility: hidden;
-}
-
-.header, 
-.hero, 
-.stats, 
-.services, 
-.testimonials-section,
-.process, 
-.software,
-.cta-section,
-.footer {
-    position: relative;
-    z-index: 2;
-    transform: translateZ(0);
-}
-
-.hero {
-    transform: none !important;
-}
-
+/* Motion Preferences */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
