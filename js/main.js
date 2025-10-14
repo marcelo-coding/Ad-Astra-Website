@@ -1,5 +1,6 @@
 // AdAstra Digital Marketing - Main JavaScript
 // Network animation and core functionality
+// VERSION 2 - FIXED SCROLLING ISSUES
 
 // Network Canvas Animation
 class AdAstraNetwork {
@@ -165,11 +166,11 @@ class FloatingParticles {
     }
 }
 
-// Scroll Animations
+// Scroll Animations - FIXED: Removed parallax effect
 class ScrollAnimations {
     constructor() {
         this.initScrollAnimations();
-        this.initParallax();
+        // REMOVED: initParallax() - this was causing the weird scrolling lag
     }
     
     initScrollAnimations() {
@@ -186,16 +187,6 @@ class ScrollAnimations {
         };
 
         window.addEventListener('scroll', animateOnScroll);
-    }
-    
-    initParallax() {
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            if (hero) {
-                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
-        });
     }
 }
 
