@@ -134,28 +134,6 @@ class NetworkParticle {
     }
 }
 
-class FloatingParticles {
-    constructor() {
-        this.container = document.querySelector('.particles-container');
-        if (!this.container) return;
-        
-        this.createParticles();
-    }
-    
-    createParticles() {
-        const particleCount = 20;
-        
-        for (let i = 0; i < particleCount; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.animationDelay = Math.random() * 10 + 's';
-            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
-            this.container.appendChild(particle);
-        }
-    }
-}
-
 class ScrollAnimations {
     constructor() {
         this.initScrollAnimations();
@@ -497,7 +475,6 @@ class PerformanceOptimizer {
 
 document.addEventListener('DOMContentLoaded', function() {
     const network = new AdAstraNetwork();
-    const particles = new FloatingParticles();
     const scrollAnimations = new ScrollAnimations();
     const numberCounters = new NumberCounters();
     const faqToggle = new FAQToggle();
