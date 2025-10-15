@@ -318,18 +318,32 @@ html {
 }
 
 /* Calendly Widget Styling - Both Hero and CTA */
-.hero-calendly,
-.calendly-embed-container {
-    background: #1a4b73;
+.hero-calendly {
+    background: transparent;
     border-radius: 15px;
-    overflow: hidden;
-    box-shadow: none;
-    height: 950px;
-    max-height: 950px;
+    overflow: hidden !important;
+    box-shadow: none !important;
+    height: 950px !important;
+    min-height: 950px !important;
+    max-height: 950px !important;
     position: relative;
     z-index: 1;
     padding: 0 !important;
     margin: 0 !important;
+}
+
+.calendly-embed-container {
+    background: transparent;
+    border-radius: 15px;
+    overflow: hidden !important;
+    box-shadow: none !important;
+    height: 950px !important;
+    min-height: 950px !important;
+    max-height: 950px !important;
+    position: relative;
+    z-index: 1;
+    padding: 0 !important;
+    margin: 0 auto !important;
 }
 
 /* Hide Calendly scrollbar and remove all padding */
@@ -338,7 +352,9 @@ html {
     padding: 0 !important;
     margin: 0 !important;
     width: 100% !important;
-    height: 100% !important;
+    height: 950px !important;
+    min-height: 950px !important;
+    box-shadow: none !important;
 }
 
 .calendly-inline-widget iframe {
@@ -347,19 +363,38 @@ html {
     margin: 0 !important;
     border: none !important;
     width: 100% !important;
-    height: 100% !important;
+    height: 950px !important;
+    min-height: 950px !important;
+    box-shadow: none !important;
 }
 
-/* Remove Calendly's internal padding */
-.calendly-inline-widget * {
-    padding: 0 !important;
-    margin: 0 !important;
+/* Remove Calendly's internal padding and shadows */
+.calendly-inline-widget *,
+.calendly-inline-widget * > * {
+    box-shadow: none !important;
 }
 
 /* Target Calendly's wrapper divs */
-.calendly-inline-widget > div {
+.calendly-inline-widget > div,
+.calendly-inline-widget > div > div {
     padding: 0 !important;
     margin: 0 !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+}
+
+/* Hide scrollbars completely */
+.calendly-inline-widget::-webkit-scrollbar,
+.calendly-inline-widget iframe::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+.calendly-inline-widget,
+.calendly-inline-widget iframe {
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
 }
 
 .client-logos {
