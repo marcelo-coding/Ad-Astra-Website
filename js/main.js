@@ -175,6 +175,7 @@ class ScrollAnimations {
         };
 
         window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll();
     }
 }
 
@@ -188,13 +189,14 @@ class NumberCounters {
         if (this.animated) return;
         this.animated = true;
         
-        const counters = document.querySelectorAll('.stat-number');
+        const counters = document.querySelectorAll('.stat-item > div:first-child');
         counters.forEach(counter => {
             const finalText = counter.textContent;
-            const target = parseInt(counter.getAttribute('data-target') || '0');
+            const numMatch = finalText.match(/\d+/);
             
-            if (target === 0) return;
+            if (!numMatch) return;
             
+            const target = parseInt(numMatch[0]);
             let current = 0;
             const increment = target / 50;
             const duration = 2000;
@@ -211,6 +213,8 @@ class NumberCounters {
                         counter.textContent = '$' + Math.floor(current) + 'M+';
                     } else if (finalText.includes('+')) {
                         counter.textContent = Math.floor(current) + '+';
+                    } else if (finalText.toLowerCase().includes('year')) {
+                        counter.textContent = Math.floor(current) + ' Years';
                     } else {
                         counter.textContent = Math.floor(current);
                     }
@@ -227,6 +231,8 @@ class NumberCounters {
                     statsObserver.unobserve(entry.target);
                 }
             });
+        }, {
+            threshold: 0.3
         });
 
         const statsSection = document.querySelector('.stats');
@@ -269,12 +275,19 @@ class SmoothScroll {
     setupSmoothScrolling() {
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const target = document.querySelector(href);
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
                     });
                 }
             });
@@ -296,6 +309,14 @@ class ButtonEffects {
             button.addEventListener('mouseleave', function() {
                 this.style.transform = 'translateY(0) scale(1)';
             });
+            
+            button.addEventListener('mousedown', function() {
+                this.style.transform = 'translateY(-1px) scale(1.02)';
+            });
+            
+            button.addEventListener('mouseup', function() {
+                this.style.transform = 'translateY(-3px) scale(1.05)';
+            });
         });
     }
 }
@@ -310,39 +331,167 @@ class FormHandler {
         forms.forEach(form => {
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
-                alert('Thank you for your interest! We will contact you within 24 hours to schedule your free strategy session.');
+                
+                const submitBtn = form.querySelector('.submit-btn');
+                const originalText = submitBtn.textContent;
+                
+                submitBtn.textContent = 'Sending...';
+                submitBtn.disabled = true;
+                
+                setTimeout(() => {
+                    alert('Thank you for your interest! We will contact you within 24 hours to schedule your free strategy session.');
+                    form.reset();
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }, 1000);
             });
         });
     }
 }
 
-class TypingAnimation {
+class ServiceCards {
     constructor() {
-        this.initTypingAnimation();
+        this.setupServiceCards();
     }
     
-    typeWriter(element, text, speed = 50) {
-        let i = 0;
-        element.innerHTML = '';
+    setupServiceCards() {
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    }
+}
+
+class TestimonialCards {
+    constructor() {
+        this.setupTestimonialCards();
+    }
+    
+    setupTestimonialCards() {
+        document.querySelectorAll('.testimonial-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    }
+}
+
+class Navigation {
+    constructor() {
+        this.setupNavigation();
+        this.setupMobileMenu();
+    }
+    
+    setupNavigation() {
+        let lastScroll = 0;
+        const header = document.querySelector('.header');
         
-        function type() {
-            if (i < text.length) {
-                element.innerHTML += text.charAt(i);
-                i++;
-                setTimeout(type, speed);
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = 'none';
             }
-        }
-        type();
+            
+            lastScroll = currentScroll;
+        });
+        
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
     }
     
-    initTypingAnimation() {
-        window.addEventListener('load', () => {
-            const heroTitle = document.querySelector('.hero h1');
-            if (heroTitle) {
-                const originalText = heroTitle.textContent;
-                this.typeWriter(heroTitle, originalText, 50);
+    setupMobileMenu() {
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('.nav-menu');
+        
+        if (burger && nav) {
+            burger.addEventListener('click', () => {
+                nav.classList.toggle('active');
+                burger.classList.toggle('active');
+            });
+            
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    nav.classList.remove('active');
+                    burger.classList.remove('active');
+                });
+            });
+        }
+    }
+}
+
+class CalendlyIntegration {
+    constructor() {
+        this.setupCalendlyButtons();
+    }
+    
+    setupCalendlyButtons() {
+        document.querySelectorAll('[data-calendly]').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const heroCalendly = document.querySelector('.hero-calendly');
+                if (heroCalendly) {
+                    heroCalendly.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                }
+            });
+        });
+    }
+}
+
+class PerformanceOptimizer {
+    constructor() {
+        this.optimizeImages();
+        this.setupLazyLoading();
+    }
+    
+    optimizeImages() {
+        const images = document.querySelectorAll('img');
+        images.forEach(img => {
+            if (!img.hasAttribute('loading')) {
+                img.setAttribute('loading', 'lazy');
             }
         });
+    }
+    
+    setupLazyLoading() {
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                        }
+                        observer.unobserve(img);
+                    }
+                });
+            });
+            
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
     }
 }
 
@@ -355,7 +504,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const smoothScroll = new SmoothScroll();
     const buttonEffects = new ButtonEffects();
     const formHandler = new FormHandler();
-    const typingAnimation = new TypingAnimation();
+    const serviceCards = new ServiceCards();
+    const testimonialCards = new TestimonialCards();
+    const navigation = new Navigation();
+    const calendlyIntegration = new CalendlyIntegration();
+    const performanceOptimizer = new PerformanceOptimizer();
+    
+    window.adAstraNetwork = network;
     
     console.log('AdAstra Digital Marketing website loaded successfully!');
 });
