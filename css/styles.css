@@ -348,23 +348,21 @@ html {
 
 /* Hide Calendly scrollbar and remove all padding */
 .calendly-inline-widget {
-    overflow: hidden !important;
     padding: 0 !important;
     margin: 0 !important;
     width: 100% !important;
-    height: 950px !important;
-    min-height: 950px !important;
+    height: 1000px !important;
+    min-height: 1000px !important;
     box-shadow: none !important;
 }
 
 .calendly-inline-widget iframe {
-    overflow: hidden !important;
     padding: 0 !important;
     margin: 0 !important;
     border: none !important;
     width: 100% !important;
-    height: 950px !important;
-    min-height: 950px !important;
+    height: 1000px !important;
+    min-height: 1000px !important;
     box-shadow: none !important;
 }
 
