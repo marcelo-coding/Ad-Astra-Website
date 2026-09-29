@@ -115,30 +115,26 @@
     <div class="page-hero-inner">
       <span class="eyebrow">About</span>
       <h1>Our Stack</h1>
-      <p>Published and versioned software runs our accounts every day, so the repetitive ad work fires as code with a paper trail.</p>
+      <p>Versioned software runs our accounts every day, so the repetitive ad work fires as code with a paper trail.</p>
     </div>
   </header>
 
   <article class="article">
     <h3>SKAG Optimization Engine</h3>
-    <p>Single keyword campaigns sit on an open source rules engine that reads performance on a fifteen minute trigger, cuts bleeders on tiered click thresholds, and anchors every new bid to the CPC the auction actually charged rather than to the bid someone once guessed. We ship it like production software, with a pinned deployment where every rule change is a version that can be promoted or rolled back deliberately.</p>
-    <p>Get it: <a href="https://drive.google.com/file/d/1x0xA0pkVczYSMZ7l2Ey_rpea91fMUOTe/view" target="_blank" rel="noopener">Download the sanitized engine source →</a>.</p>
+    <p>Single keyword campaigns sit on a rules engine that reads performance on a fifteen minute trigger, cuts bleeders on tiered click thresholds, and anchors every new bid to the CPC the auction actually charged rather than to the bid someone once guessed. We ship it like production software, with a pinned deployment where every rule change is a version that can be promoted or rolled back deliberately.</p>
 
     <h3>Amazon Ads Data Extractor</h3>
-    <p>An open source extraction layer feeds the engine. It pulls the advertising reports on a schedule and normalizes them, because a bid rule is only as good as the numbers it fires against, and a stale export produces confident decisions about a market that no longer exists.</p>
-    <p>Get it: <a href="https://drive.google.com/file/d/1iuox3J8D14WMcQK1mkieBjBcda8w3Hot/view" target="_blank" rel="noopener">Download the extractor source →</a>.</p>
+    <p>An extraction layer feeds the engine. It pulls the advertising reports on a schedule and normalizes them, because a bid rule is only as good as the numbers it fires against, and a stale export produces confident decisions about a market that no longer exists.</p>
 
     <h3>Amazon Ads MCP Fleet</h3>
     <p>We run one Amazon Ads MCP server per seller account, so AI agents can query campaigns, pull reports, and push bid changes through the official Ads API while everything they do stays under our review.</p>
-    <p>Get it: <a href="https://drive.google.com/file/d/1nAymhIgLaeztr6wY8ZbCOudaDNvGMcvU/view" target="_blank" rel="noopener">Download the MCP server source →</a>.</p>
 
     <h3>Cloud MCP Admin</h3>
     <p>The cloud control plane ties the stack together. It snapshots configuration, syncs state to cloud storage on a five minute cadence, verifies parity by checksum, and can restore our entire environment to a fresh machine in one command, so the tooling survives a hardware failure without losing a day of work.</p>
-    <p>Get it: <a href="https://drive.google.com/file/d/1sHhYKRUVGHWRF7pojBrX4ps7QyzvC3K0/view" target="_blank" rel="noopener">Download the control plane source →</a>.</p>
 
     <h3>AI Agent Workflows</h3>
     <p>AI agent workflows sit on top of the fleet to handle the reading and reporting around the accounts. We keep human judgment for the monthly strategy reviews and the reinvestment decisions, not for the four hundredth bid change of the week. That keeps the daily work firing as code with a paper trail, which is how we manage 15 to 20 accounts without the quality of any single one depending on how busy the week was. The engagement built on this stack is described in <a href="../services/dev-automation.html">Dev and Automation</a>.</p>
-    <p>More tools: <a href="../tools.html">See every tool with its source archive →</a>.</p>
+    <p>More tools: <a href="../tools.html">Browse the tools we have built →</a>.</p>
   </article>
 
   <footer class="footer">
